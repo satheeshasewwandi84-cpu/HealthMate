@@ -79,6 +79,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             HealthMateTheme {
+
                 var screen by remember {
                     mutableStateOf("welcome")
                 }
@@ -109,55 +110,11 @@ class MainActivity : ComponentActivity() {
                 }
 
                 Scaffold(
-                    containerColor = Color(0xFFF7F4FF),
-                    bottomBar = {
-                        if (screen != "welcome") {
-                            NavigationBar {
-                                NavigationBarItem(
-                                    selected = screen == "home",
-                                    onClick = {
-                                        screen = "home"
-                                    },
-                                    icon = {
-                                        Text("⌂")
-                                    },
-                                    label = {
-                                        Text("Home")
-                                    }
-                                )
-
-                                NavigationBarItem(
-                                    selected = screen == "add",
-                                    onClick = {
-                                        editRecord = null
-                                        screen = "add"
-                                    },
-                                    icon = {
-                                        Text("+")
-                                    },
-                                    label = {
-                                        Text("Add Record")
-                                    }
-                                )
-
-                                NavigationBarItem(
-                                    selected = screen == "history",
-                                    onClick = {
-                                        screen = "history"
-                                    },
-                                    icon = {
-                                        Text("≡")
-                                    },
-                                    label = {
-                                        Text("History")
-                                    }
-                                )
-                            }
-                        }
-                    }
+                    containerColor = Color(0xFFF7F4FF)
                 ) { padding ->
 
                     Box(Modifier.padding(padding)) {
+
                         when (screen) {
 
                             "welcome" -> WelcomeScreen(

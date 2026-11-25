@@ -32,18 +32,14 @@ fun AddRecordScreen(
     var steps by remember(record) {
         mutableStateOf(record?.steps?.toString() ?: "")
     }
-
     var calories by remember(record) {
         mutableStateOf(record?.calories?.toString() ?: "")
     }
-
     var water by remember(record) {
         mutableStateOf(record?.water?.toString() ?: "")
     }
 
-    val format = SimpleDateFormat(
-        "yyyy-MM-dd", Locale.getDefault()
-    )
+    val format = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
 
     var date by remember(record) {
         mutableLongStateOf(
@@ -135,7 +131,7 @@ fun AddRecordScreen(
                     .height(52.dp),
                 shape = RoundedCornerShape(14.dp)
             ) {
-                Text("📅   $dateText", color = purple)
+                Text(dateText, color = purple)
             }
 
             if (showDate) {
@@ -172,7 +168,7 @@ fun AddRecordScreen(
             OutlinedTextField(
                 value = steps,
                 onValueChange = { steps = it },
-                label = { Text("👣   Steps Walked") },
+                label = { Text("Steps Walked") },
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Number
                 ),
@@ -184,7 +180,7 @@ fun AddRecordScreen(
             OutlinedTextField(
                 value = calories,
                 onValueChange = { calories = it },
-                label = { Text("🔥   Calories Burned (kcal)") },
+                label = { Text("Calories Burned (kcal)") },
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Number
                 ),
@@ -196,7 +192,7 @@ fun AddRecordScreen(
             OutlinedTextField(
                 value = water,
                 onValueChange = { water = it },
-                label = { Text("💧   Water Intake (ml)") },
+                label = { Text("Water Intake (ml)") },
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Number
                 ),

@@ -124,9 +124,9 @@ fun DashboardScreen(
                 color = Color(0xFF39334F)
             )
 
-            SummaryCard("👣", "Steps Walked", "$steps steps", purple)
-            SummaryCard("🔥", "Calories Burned", "$calories kcal", purple)
-            SummaryCard("💧", "Water Intake", "$water ml", purple)
+            SummaryCard("Steps Walked", "$steps steps", purple)
+            SummaryCard("Calories Burned", "$calories kcal", purple)
+            SummaryCard("Water Intake", "$water ml", purple)
 
             Button(
                 onClick = onAddRecord,
@@ -168,7 +168,6 @@ fun DashboardScreen(
 
 @Composable
 fun SummaryCard(
-    icon: String,
     title: String,
     value: String,
     purple: Color
@@ -183,43 +182,26 @@ fun SummaryCard(
             defaultElevation = 3.dp
         )
     ) {
-        Row(
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(18.dp),
-            verticalAlignment = Alignment.CenterVertically
+                .padding(18.dp)
         ) {
-            Box(
-                modifier = Modifier
-                    .size(50.dp)
-                    .background(
-                        Color(0xFFECE8FF),
-                        CircleShape
-                    ),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(icon, fontSize = 23.sp)
-            }
+            Text(
+                title,
+                fontSize = 17.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color(0xFF39334F)
+            )
 
-            Spacer(Modifier.width(16.dp))
+            Spacer(Modifier.height(8.dp))
 
-            Column {
-                Text(
-                    title,
-                    fontSize = 17.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color(0xFF39334F)
-                )
-
-                Spacer(Modifier.height(5.dp))
-
-                Text(
-                    value,
-                    fontSize = 22.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = purple
-                )
-            }
+            Text(
+                value,
+                fontSize = 22.sp,
+                fontWeight = FontWeight.Bold,
+                color = purple
+            )
         }
     }
 }
